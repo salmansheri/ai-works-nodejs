@@ -9,7 +9,11 @@ router.route("/").get(async (req: Request, res: Response) => {
 
   try {
     const data = await searchProducts(query as string);
-    return res.status(200).json(`${data.products[0].price.currentPrice} ${data.products[0].price.priceSymbol}`); 
+    return res
+      .status(200)
+      .json(
+        `${data.products[0].price.currentPrice} ${data.products[0].price.priceSymbol}`,
+      );
   } catch (error: any) {
     console.log(error);
     return res.status(500).json({ message: error.message });
