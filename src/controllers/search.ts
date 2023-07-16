@@ -1,4 +1,6 @@
 import axios from "axios";
+import * as dotenv from 'dotenv'; 
+dotenv.config();
 
 export const searchProducts = async (product: string) => {
   const options = {
@@ -11,8 +13,8 @@ export const searchProducts = async (product: string) => {
       languageCode: "EN",
     },
     headers: {
-      "X-RapidAPI-Key": "339adaaa81msh3422bb667789a00p1dec77jsn157cc41087b6",
-      "X-RapidAPI-Host": "amazon-web-scraping-api.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.API_KEY as string ,
+      "X-RapidAPI-Host":process.env.API_URL as string,
     },
   };
   const response = await axios.request(options);
