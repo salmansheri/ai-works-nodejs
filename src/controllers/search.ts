@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as dotenv from 'dotenv'; 
+import * as dotenv from "dotenv";
 dotenv.config();
 
 export const searchProducts = async (product: string) => {
@@ -13,8 +13,8 @@ export const searchProducts = async (product: string) => {
       languageCode: "EN",
     },
     headers: {
-      "X-RapidAPI-Key": process.env.API_KEY as string ,
-      "X-RapidAPI-Host":process.env.API_URL as string,
+      "X-RapidAPI-Key": process.env.API_KEY as string,
+      "X-RapidAPI-Host": process.env.API_URL as string,
     },
   };
   const response = await axios.request(options);
